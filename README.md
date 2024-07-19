@@ -99,3 +99,27 @@ Para abordar los defectos en un programa, como la posibilidad de que la función
                 contador = contador + 1
         print('Hay', contador, 'líneas de asunto (subject) en', narchivo)  # Imprime el número de líneas que empiezan con 'Subject:'.
 
+## Depuracion
+### Problemas con Espacios en Blanco en Archivos
+
+Cuando trabajas con archivos, es común que los datos contengan espacios en blanco, como espacios, tabuladores (\t) y saltos de línea (\n). Estos caracteres pueden no ser visibles al inspeccionar rápidamente el contenido de los archivos, lo que puede hacer que los errores relacionados con ellos sean difíciles de detectar y depurar.
+
+Ejemplo de una Cadena con Espacios en Blanco
+Considera la siguiente cadena en Python:
+
+        s = '1 2\t 3\n 4'
+        print(s)
+
+Esto es porque \t es un tabulador y \n es un salto de línea. Aunque el resultado visual no muestra claramente los espacios y los caracteres especiales, estos están presentes en la cadena y pueden causar problemas en el procesamiento de datos.
+
+### Uso de repr para la Depuración
+La función repr de Python puede ser muy útil para depurar este tipo de problemas. repr toma cualquier objeto como argumento y devuelve una representación de cadena de ese objeto que muestra los caracteres invisibles como secuencias de escape. Esto es particularmente útil para ver exactamente cómo se estructura la cadena con sus espacios en blanco y caracteres especiales
+
+
+        print(repr(s))
+
+El resultado de repr(s) sería:
+
+        '1 2\t 3\n 4'
+
+Aquí puedes ver claramente los caracteres invisibles: el espacio, el tabulador (\t), y el salto de línea (\n).
